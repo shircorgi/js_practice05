@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="library/jquery-3.6.0.min.js"></script>
+    <title>이벤트-4(jQuery 이용)</title>
+    <script>
+        $(function( ){
+            $(".btn1").click(function(){
+                $("#p1").css({
+                    "color" : "#f00",
+                    "font-weight" : "bold"
+                })
+            });
+
+            $(".btn2").on({
+                // 마우스가 올라갔을 때와 포커스가 갔을때 
+                "mouseover focus" : function(){
+                    $("#p2").css({
+                        "color" : "#0f0",
+                        "font-weight" : "900"
+                    });
+                },
+                //마우스가 커서가 나가거나 포커스를 강제로 잃었을 때
+                "mouseout blur" : function(){
+                    $("#p2").css({
+                        "color" : "#000",
+                        "font-weight" : "normal"
+                    });
+                }
+            });
+
+            //off()는 등록된 이벤트를 제거할때 사용 
+            //$(".btn1").off("click");
+            //$(".btn2").off("mouseout blur");
+        });
+    </script>
+</head>
+<body>
+    <p id="p1">JOJO</p>
+    <button class="btn1">버튼1</button>
+
+    <p id="p2">Golden Wind</p>
+    <button class="btn2">버튼2</button>
+</body>
+</html>

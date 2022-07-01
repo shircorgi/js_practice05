@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="library/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //버튼에 group 이벤트 등록 ((on)을 사용한다)
+            $("#btn").on("mouseover focus", function(){
+                console.log("event");
+            });
+        });
+
+        // $(document).ready(function(){
+        //     $("#btn").on({
+        //         "mouseover focus" : function(){
+        //             console.log("evnet");
+        //         }
+        //     });
+        // });
+
+        // $(document).ready(function(){
+        //     $("#btn").on({
+        //         "mouseover" : function(){
+        //             console.log("event");
+        //         }, "focus" : function(){
+        //             console.log("event");
+        //         }
+        //     })
+        // });
+    </script>
+    <title>이벤트-2(jQuery 이용)</title>
+</head>
+<body>
+    <button id="btn">버튼</button>
+</body>
+</html>

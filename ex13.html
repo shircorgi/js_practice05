@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="library/jquery-3.6.0.min.js"></script>
+    <!-- 하위버전 제이쿼리를 사용해서 볼 것! -->
+    <title>이벤트-5(jQuery 이용)</title>
+    <script>
+        //ready() / load()
+        //ready(): 클라이언트가 사이트를 방문할 때 요청한 HTML 문서 객체의 로딩이 끝나면 이벤트를 실행
+        //load(): 외부에 연동된 소스(iframe, img, video 등)의 로딩이 끝나면 이벤트를 실행
+        $(function(){
+            $(document).ready(function(){
+                var h1 = $(".img").height();
+                alert("height: " + h1);
+            });
+            $(window).load(function(){
+                var h2 = $(".img").height();
+                alert("height: " + h2);
+            });
+        });
+    </script>
+</head>
+<body>
+   <p>
+       <!-- 외부에 있는 연동 소스 -->
+       <img src="https://plade-hold.it/500X500" alt="" class="img">
+   </p>
+</body>
+</html>

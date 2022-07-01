@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지구본 움직이기</title>
+    <style>
+        body {
+            font-size: 10pt;
+        }
+
+        #panel {
+            width: 600px;
+            height: 500px;
+            border: 1px solid #999;
+            position: relative;
+        }
+
+        #gigu {
+            position: absolute;
+            width: 80px;
+            left:50px;
+            top: 120px;
+        }
+
+        #nav {
+            text-align: center;
+            width: 600px;
+        }
+    </style>
+    <script src="library/jquery-3.6.0.min.js"></script>
+    <script>
+
+        //전역변수로 선언
+        var $gigu = null;
+
+        $(document).ready(function(){
+            initialize();
+            event();
+        });
+
+        //전역변수를 초기화
+        function initialize(){
+            //지구본 찾기
+            $gigu = $("#gigu");
+        }
+
+        //이벤트와 관련된 내용을 함수로 등록
+        function event(){
+            //버튼에 이벤트 등록하기
+            $("#btnStart").click(function(){
+            //지구본 움직이기
+            //지구본 위치값 구하기 
+            var x = parseInt($("#txtX").val());
+            var y = parseInt($("#txtY").val());
+            moveGigu(x,y);
+            });
+        }
+
+        function moveGigu(x,y){
+            if((x >= 0 && x <= 500) && (y >= 0 && y <= 300)){
+                $gigu.css({
+                    left : x, 
+                    top : y
+                });
+            } else {
+                alert("입력된 값이 범위를 벗어났습니다");}
+        }
+
+//         //지구본 찾기
+//         $gigu = $("#gigu");
+
+// //버튼에 이벤트 등록하기
+// $("#btnStart").click(function(){
+//     //지구본 움직이기
+//     //지구본 위치값 구하기 
+//     var x = parseInt($("#txtX").val());
+//     var y = parseInt($("#txtY").val());
+
+//     if((x >= 0 && x <= 500) && (y >= 0 && y <= 300)){
+//         $gigu.css({
+//             left : x, 
+//             top : y
+//         });
+//     } else {
+//         alert("입력된 값이 범위를 벗어났습니다");
+//     }
+// });
+    </script>
+</head>
+<body>
+    <div>
+        <div id="panel">
+            <img src="images/gigu.png" alt="gigu" id="gigu">
+        </div>
+
+        <div id="nav">
+            <label for="">X값 입력: </label>
+            <input id="txtX" />
+            <br/>
+
+            <label for="">Y값 입력: </label>
+            <input id="txtY" />
+            <br/>
+            <button id="btnStart">지구본 움직이기</button>
+        </div>
+    </div>
+</body>
+</html>
